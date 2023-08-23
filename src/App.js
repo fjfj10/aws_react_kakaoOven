@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Reset } from "styled-reset";
+import { Global } from "@emotion/react";
+import React, { useState } from 'react';
+import * as S from "./styles/Common"
+import MainLayout from "./components/MainLayout/MainLayout";
+import { Route, Routes } from "react-router-dom";
+import MyProject from "./pages/MyProject/MyProject";
+import ShaerdProject from "./pages/ShaerdProject/ShaerdProject";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Reset />
+      <Global css={S.GSCommon}/>
+      <MainLayout>
+        <Routes>
+          <Route path="/myproject" element={ <MyProject /> }/>
+          <Route path="/shaerdproject" element={ <ShaerdProject /> }/>
+        </Routes>
+      </MainLayout>
+    </>
   );
 }
 
